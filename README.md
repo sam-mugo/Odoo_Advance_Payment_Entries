@@ -1,5 +1,8 @@
 # Odoo_Advance_Payment_Entries
 
+### Compatibility
+* v17 & v18
+
 ## Behavior summary
 
 * Adds an advance_payment monetary field to sale.order.
