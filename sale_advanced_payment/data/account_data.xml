@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Create an Advance Received liability account -->
+    <!-- <record id="account_account_advance_received" model="account.account">
+        <field name="name">Advance Received</field>
+        <field name="code">ADV_REC</field>
+        <field name="user_type_id" ref="account.data_account_type_current_liability"/>
+        <field name="reconcile">False</field>
+    </record> -->
+
+
+    <!-- Create a dedicated journal for advances -->
+    <!-- <record id="account_journal_advance" model="account.journal">
+        <field name="name">Advance Journal</field>
+        <field name="code">ADVJ</field>
+        <field name="type">general</field>
+        The default company will be used on install; users can edit the journal later
+    </record> -->
+    <record id="account_advance_received" model="account.account">
+        <field name="name">Advance Received</field>
+        <field name="code">2110</field>  <!-- Adjust code based on your chart -->
+        <field name="account_type">liability_current</field>
+        <field name="reconcile">False</field>
+        <!-- <field name="company_id" ref="base.main_company"/> -->
+    </record>
+
+    <!-- Create Advance Payment Journal -->
+    <record id="journal_advance_payment" model="account.journal">
+        <field name="name">Customer Advance Payments</field>
+        <field name="code">ADV</field>
+        <field name="type">general</field>
+        <!-- <field name="company_id" ref="base.main_company"/> -->
+        <field name="default_account_id" ref="account_advance_received"/>
+    </record>
+</odoo>
